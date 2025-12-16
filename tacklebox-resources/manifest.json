@@ -1,0 +1,10 @@
+{
+    "name": "Tacklebox Resources",
+    "author": "puppy-girl",
+    "pck_info": {
+        "directory": "pck",
+        "resource_prefix": "res://mods/TackleBox"
+    },
+    "patches": [],
+    "deps": []
+}

@@ -1,0 +1,37 @@
+diff --git a/Webfishing-Vanilla/Scenes/Singletons/UserSave/usersave.gd b/Webfishing-decomp/Scenes/Singletons/UserSave/usersave.gd
+index 3803350..05ba233 100644
+--- a/Webfishing-Vanilla/Scenes/Singletons/UserSave/usersave.gd
++++ b/Webfishing-decomp/Scenes/Singletons/UserSave/usersave.gd
+@@ -21,8 +21,7 @@ var general_save_loaded = false
+ signal _slot_saved
+ 
+ 
+-func _ready():
+-	
++func _ready():	
+ 	yield(get_tree().create_timer(2.0), "timeout")
+ 	
+ 	var save_exists = _load_general_save()
+@@ -82,7 +81,11 @@ func _load_general_save():
+ 	
+ 	
+ 	if last_loaded_slot != - 1:
+-		_load_save(last_loaded_slot)
++		var Atproto = $"/root/Atproto"
++		if last_loaded_slot != Atproto.ATPROTO_SLOT or Atproto.config.Autoload:
++			_load_save(last_loaded_slot)
++		else:
++			last_loaded_slot = -1
+ 	else:
+ 		prompt_save_selection = true
+ 	
+@@ -328,6 +331,9 @@ func _save_slot(slot):
+ 		"voice_speed": PlayerData.voice_speed, 
+ 		"locked_refs": PlayerData.locked_refs, 
+ 	}
++	var atproto = $"/root/Atproto"
++	if atproto.can_save_to_atproto():
++		atproto.AtProtoClient.save_file()
+ 	
+ 	var save = File.new()
+ 	save.open(SAVE_PATH, File.WRITE)

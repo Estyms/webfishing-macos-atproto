@@ -1,0 +1,19 @@
+{
+    "name": "Webfishing ATProto",
+    "author": "Sucrettae",
+    "pck_info": {
+        "directory": "pck",
+        "resource_prefix": "res://mods/Atproto"
+    },
+    "patches": [
+        {
+        "resource": "res://Scenes/Singletons/globals.gdc",
+        "patch_file": "patch/globals.patch"
+        },
+        {
+        "resource": "res://Scenes/Singletons/UserSave/usersave.gdc",
+        "patch_file": "patch/usersave.patch"
+        }  
+    ],
+    "deps": ["Tacklebox Resources"]
+}

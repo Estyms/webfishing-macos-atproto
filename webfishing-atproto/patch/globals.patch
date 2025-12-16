@@ -1,0 +1,14 @@
+diff --git a/Webfishing-Vanilla/Scenes/Singletons/globals.gd b/Webfishing-decomp/Scenes/Singletons/globals.gd
+index c6c1a17..5893a6e 100644
+--- a/Webfishing-Vanilla/Scenes/Singletons/globals.gd
++++ b/Webfishing-decomp/Scenes/Singletons/globals.gd
+@@ -12,6 +12,9 @@ var voice_bank = {}
+ var loot_tables = {}
+ 
+ func _ready():
++	var Atproto = load("res://mods/Atproto/main.gd").new()
++	Atproto.set_name("Atproto")
++	get_tree().get_root().call_deferred("add_child", Atproto)
+ 	get_tree().set_auto_accept_quit(false)
+ 	OS.set_window_title("WEBFISHING v" + str(GAME_VERSION))
+ 	
